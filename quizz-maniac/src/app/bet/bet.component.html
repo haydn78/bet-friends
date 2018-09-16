@@ -1,0 +1,9 @@
+ <div class="row" *ngFor="let bet of Bets">
+  <div class="col">{{bet.name}}</div>
+  <div class="col">{{bet.odds}}</div>
+  <div class="col">
+     <a routerLink="/makeBet/{{bet.id}}" class="col btn">Place Bet</a>
+ </div>
+    
+  </div>
+              

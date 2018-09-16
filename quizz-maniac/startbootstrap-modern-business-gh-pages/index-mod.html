@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+
+
+<script>
+/**var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/about", {
+        templateUrl : "partials/about.html"
+    });
+});**/
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope,$http) {
+    $scope.myFunction = function() {
+	   $http.get("https://reqres.in/api/users/2")
+	   .then(function(response) {
+		$scope.content = response.data;
+         });  
+    }
+});
+
+</script>
+
+
+<body> 
+
+
+
+
+<p>it’s straight up magic</p>
+</div>
+
+<div ng-app="myApp"  ng-controller="myCtrl">
+<button name="getstuff" ng-click="myFunction()">Click me!</button>
+
+<p>Data : {{content}}</p>
+
+<div ng-include="'templates/header.html'"> </div>
+<div ng-view></div>
+
+
+</body>
+
+</html>

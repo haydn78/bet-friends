@@ -1,0 +1,43 @@
+ <app-navigator> </app-navigator>
+
+
+
+
+ <!-- Page Content -->
+<div class="container">
+
+<div class="row" >
+
+ <div class="col-sm-4" >
+ 
+ <h1 class="my-4">Active Games</h1>
+ 
+  <!-- Marketing Icons Section -->
+      <div class="row-48" *ngFor="let gameapi of Games"> 
+        <div class="col-48 mb-4" *ngIf="gameapi.game.active">
+          <div class="card h-100">
+            <h4 class="card-header">{{gameapi.game.name}}</h4>
+            <div class="card-body">
+             	<app-bet [Bets]="gameapi.game.Bets"></app-bet>   
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- /.row -->
+   </div>
+   
+  <div class="col-sm-4" >
+    <h1 class="my-4">My Bets</h1>
+  <!-- Marketing Icons Section -->
+      <div class="row-48" *ngFor="let userbet of UserBets"> 
+          <div class="card h-100">
+            <h4 class="card-header">{{userbet.name}}</h4>
+          </div>
+        </div>
+      </div>
+  </div>
+   
+ </div>
+   
+  
+        

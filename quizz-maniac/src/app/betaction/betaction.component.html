@@ -1,0 +1,37 @@
+
+ <!-- Page Content -->
+<div class="container">
+<div class="col-sm-4">
+	<div class="card h-100">
+		<h4 class="card-header">Selected Bet</h4>
+		<label>{{userbet.name}}</label> 
+
+		<div class="col-6">
+		<label>Odds</label>
+		</div>
+		<div class="col-6">
+		 <label>{{userbet.odds}}</label>
+		</div>
+
+		<label>Amount</label> <input [(ngModel)]="userbet.amount"
+			placeholder="amount" /> <label>Potential Wins</label>
+		<div class="col-sml mb-4">
+			<label>{{userbet.amount * userbet.odds | number}}</label>
+		</div>
+	</div>
+<div class="card-footer">
+	<a href="#" class="btn">Confirm Bet</a>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
