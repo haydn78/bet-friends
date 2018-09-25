@@ -1,33 +1,39 @@
+ <app-navigator> </app-navigator>
 
  <!-- Page Content -->
 <div class="container">
-<div class="col-sm-4">
-	<div class="card h-100">
-		<h4 class="card-header">Selected Bet</h4>
-		<label>{{userbet.name}}</label> 
 
-		<div class="col-6">
-		<label>Odds</label>
-		</div>
-		<div class="col-6">
-		 <label>{{userbet.odds}}</label>
-		</div>
+<div class="row" >
 
-		<label>Amount</label> <input [(ngModel)]="userbet.amount"
-			placeholder="amount" /> <label>Potential Wins</label>
-		<div class="col-sml mb-4">
-			<label>{{userbet.amount * userbet.odds | number}}</label>
-		</div>
-	</div>
-<div class="card-footer">
-	<a href="#" class="btn">Confirm Bet</a>
-</div>
-</div>
-</div>
-
-
-
-
+ <div class="col-sm-4" >
+ 
+  <!-- Marketing Icons Section -->
+      <div class="row-100"> 
+        <div class="col-100 mb-4">
+          <div class="card h-100">
+            <h4 class="card-header">{{userbet.name | titlecase}}</h4>
+            <div class="card-body">
+             	 <div class="row">
+ 					 <div class="col-xs-2">Odds:{{userbet.odds}}</div>
+  					 <div class="col-xs-6">Amount
+  					      <input type="text" id="defaultForm-amount"  [(ngModel)]='userbet.amount' min="1" name="amount"   placeholder="100"  required>
+                      </div>
+  					 <div class="col-xs-6">Wins: {{userbet.amount * userbet.odds | number}}</div>
+  					 
+  					 <div class="col-xs-12">
+  					     <button class="btn-sm  btn-success"  id="make-bet-btn" (click)='placeBet()'>Bet</button>
+     				</div> 
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- /.row -->
+   </div>
+   
+  
+ </div>
+   
+  
 
 
 

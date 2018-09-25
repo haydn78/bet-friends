@@ -1,8 +1,8 @@
- <div class="row" *ngFor="let bet of Bets">
-  <div class="col">{{bet.name}}</div>
-  <div class="col">{{bet.odds}}</div>
+ <div class="row form-black" *ngFor="let bet of Bets">
+  <div class="col" [hidden]="!bet.active">{{bet.name}}</div>
+  <div class="col" [hidden]="!bet.active">{{bet.odds}}</div>
   <div class="col">
-     <a routerLink="/makeBet/{{bet.id}}" class="col btn">Place Bet</a>
+     <button class="btn btn-outline-black form-control" [hidden]="!bet.active" id="make-bet-btn" (click)='placeBet(bet.id)'>Bet Now</button>
  </div>
     
   </div>

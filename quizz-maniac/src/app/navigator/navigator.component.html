@@ -1,13 +1,25 @@
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   
-   <!-- Navigation -->
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Welcome <label *ngIf="user">{{user.name | titlecase}}</label>   </a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-              <a  *ngIf="user" class="navbar-nav ml-auto" routerLink="/login">Login</a>
-              <a  *ngIf="user" class="navbar-nav ml-auto" routerLink="/dashboard">Dashboard</a>
-              <a  *ngIf="user" class="navbar-nav ml-auto" routerLink="/leaderboard">Leaderboard</a>
-              <a  *ngIf="user" class="navbar-nav ml-auto" routerLink="/logout">Logout</a>
-        </div>
+<nav class="navbar navbar-inverse" *ngIf="loggedInUser">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+   <img class="navbar-brand" src="assets/beturmate.png"  alt="Bet-UR-Mate"/>
+     <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Menu</a></li>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/dashboard">Dashboard</a></li>
+         <li><a routerLink="/leaderboard">Leaderboard</a></li>
+        <li><a *ngIf="loggedInUser" routerLink="/regsiter"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+  
+  </ul>
+    </div>
+    
+    
       </div>
-   </nav>
+</nav>
+ <h4> Welcome {{loggedInUser.name}}, you have {{loggedInUser.points}}</h4> 

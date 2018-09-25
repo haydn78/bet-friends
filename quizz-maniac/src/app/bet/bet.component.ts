@@ -1,6 +1,6 @@
 import { Component, OnInit,Input  } from '@angular/core';
 import { Bet } from '../bet';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,12 +11,15 @@ import { Bet } from '../bet';
 export class BetComponent implements OnInit {
 
   @Input() Bets: Bet[];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
   
-  onSelect(bet){
-  console.log(bet)
+  placeBet(betid) {
+   // event.preventDefault();
+   
+    console.log(betid);
+    this.router.navigate(["/makeBet/"+betid]);
   }
 }

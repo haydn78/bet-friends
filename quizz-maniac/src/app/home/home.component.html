@@ -1,0 +1,45 @@
+
+<app-navigator> </app-navigator>
+
+
+
+
+<!-- Page Content -->
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-sm-4">
+			<h1 class="my-4"> {{user.name}}'s Live Bets</h1>
+			<!-- Marketing Icons Section -->
+			<div class="row-96" >
+				<div class="card h-100">
+					<div class="card-body" *ngFor="let userbet of UserBets">
+						<div class="col">
+						<i class="ml-2 fa prefix white-text"></i>
+ 					 <label>{{userbet.name}}</label>
+					</div>
+						<div class="col">
+						<i class="ml-2 fa  prefix white-text"></i>
+ 					     <label>Odds: {{userbet.odds}} </label>
+						</div>
+						<div class="col">
+						<i class="ml-2 fa  prefix white-text"></i>
+ 					     <label>Bet Amount: {{userbet.amount}} </label>
+						</div>
+						<div class="col">
+						  <i class="ml-2 faprefix white-text"></i>
+                          <label>Wins: {{userbet.amount * userbet.odds | number}}</label>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+</div>
+
+
+
+
+

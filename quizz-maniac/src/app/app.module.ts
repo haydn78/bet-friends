@@ -13,14 +13,20 @@ import { AppRoutingModule, routingComponents } from './app.routes';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BetComponent } from './bet/bet.component';
 import { NavigatorComponent } from './navigator/navigator.component';
-import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginService } from './services/login.service';
-import { GamesService } from './games.service';
-import { UsersService } from './users.service';
 import { BetActionComponent } from './betaction/betaction.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { UserDataService } from './userdata.service';
+
+
+
+import { GamesService } from './games.service';
+import { UsersService } from './users.service';
+import { BetService } from './services/bet.service';
+import { ManageComponent } from './manage/manage.component';
 
 
 @NgModule({
@@ -30,10 +36,12 @@ import { HttpClientModule }    from '@angular/common/http';
     DashboardComponent,
     BetComponent,
     NavigatorComponent,
-    LoginComponent,
     AdminComponent,
     BetActionComponent,
     LeaderboardComponent,
+    RegisterComponent,
+    HomeComponent,
+    ManageComponent,
   ],
   entryComponents: [],
   imports: [
@@ -45,7 +53,7 @@ import { HttpClientModule }    from '@angular/common/http';
     HttpModule,
     HttpClientModule
   ],
-  providers: [LoginService,GamesService,UsersService ],
+  providers: [GamesService,UsersService,UserDataService,BetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

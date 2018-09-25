@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { Bet } from '../bet';
+import { Router } from '@angular/router';
+import { GamesService } from '../games.service';
+import { GameAPI } from '../game.api';
+import { Observable } from 'rxjs/observable';
+import { BetService } from '../services/bet.service';
+
+
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +15,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  public  Games: GameAPI[];
+
+  Bets: Bet[];
+  constructor(private gamesService: GamesService,private betService: BetService) { }
 
   ngOnInit() {
+     
+    this.Bets = [];
+    let bets = this.Bets;
+    console.log("AdminComponent:ngOnInit:start:"+bets);     
+   
+     this.gamesService.getGames()
+     .subscribe(function(response) {
+       console.log("AdminComponent:ngOnInit:gameService:callback:"+response);     
+        response.data.forEach(function(data){ 
+            console.log("AdminComponent:ngOnInit:gameService:callback:gamebets"+data.game.Bets);
+            data.game.Bets.forEach(bet => bets.push(bet));
+          });
+        })
+     };
+
+    
+  
+  
+  winAction(betid) {
+    console.log("AdminrComponent:winAction:start:"+betid);
+    // find all users with this betid 
+     this.betService.payUserBets(betid).subscribe();
+  
+    // update users amount to new amount
+    // set status to inactive
   }
+
+  loseAction(betid) {
+    console.log("AdminrComponent:loseAction:start:"+betid);
+  }
+
 
 }

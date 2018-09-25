@@ -7,6 +7,6 @@ import { Bet } from './bet';
 export class Game {
   id: number;
   name: string;
-  active: boolean;
+  active: string;
   Bets: Bet[];
 }

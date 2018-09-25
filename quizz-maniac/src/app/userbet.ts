@@ -8,5 +8,5 @@ export class UserBet {
   odds: number;
   amount: number;
   against: string;
-  
+  active: boolean;
 }

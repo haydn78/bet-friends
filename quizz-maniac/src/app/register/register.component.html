@@ -1,0 +1,42 @@
+        <!--MDB Forms-->
+        <div class="container mt-4 mx-auto">
+
+            <div class="text-center darken-grey-text mb-4">
+                <h1 class="font-bold mt-4 mb-3 h5">Bet-Ur-Mates</h1>
+             </div>
+            <!-- Grid row -->
+            <div class="row mx-auto">
+                <!-- Grid column -->
+                <div class="mb-4">
+                    <div class="ml-4 card white form-black mx-auto">
+                        <div class="card-body">
+                            <h3 class="text-center black-text py-3"><i class="ml-3 fa fa-user"></i> Login/Register</h3>
+                            <!--Body-->
+                            <div class="md-form">
+                                <i class="ml-2 fa fa-lock prefix black-text"></i>
+                                <input type="text" id="username" class="form-control" [(ngModel)]='username' placeholder="Username"  required>
+                                <label for="username"></label>
+                                <span ng-show="username.$touched && username.$invalid">Username is required.</span>
+                            </div>
+                   
+                            <div class="md-form">
+                                <i class="ml-2 fa fa-envelope prefix black-text"></i>
+                                <input type="email" id="email" class="form-control"  [(ngModel)]='useremail' placeholder="Email"  required>
+                                <label for="email"></label>
+                                 <span ng-show="email.$touched && email.$invalid">Email is required.</span>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-outline-black form-control"   ng-disabled="username.$invalid || email.$dirty && email.$touched && email.$invalid" id="defaultForm-regsiterbtn" (click)='registerUser($event,username,useremail)'>Register</button>
+     
+                            </div>
+                            
+        
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+        <!--MDB Forms-->
+  

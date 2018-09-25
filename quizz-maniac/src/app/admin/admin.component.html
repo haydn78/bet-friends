@@ -1,1 +1,10 @@
-<p>admin works!</p>
+ <div class="row form-black" *ngFor="let bet of Bets">
+  <div class="col">{{bet.name}}</div>
+  <div class="col">{{bet.odds}}</div>
+  <div class="col">
+     <button class="btn btn-outline-black form-control"   id="make-bet-win" (click)='winAction(bet.id)'>Win</button>
+     <button class="btn btn-outline-black form-control"   id="make-bet-lose" (click)='loseAction(bet.id)'>Lose</button>
+ </div>
+    
+  </div>
+              
