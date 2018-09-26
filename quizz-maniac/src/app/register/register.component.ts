@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { UserDataService } from '../userdata.service';
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 
 
 @Component({
@@ -38,16 +38,26 @@ export class RegisterComponent implements OnInit {
   }**/
 
   
+  toTitleCase(str) {
+  str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+  }
+  return str.join(' ');
+};
+  
   registerUser(event,name,email) {
     console.log("RegisterComponent:registerUser:start:"+name+":"+email);  
     event.preventDefault();
+    name = this.toTitleCase(name);
+    email =   this.toTitleCase(email);  
    
    let user =  {
     "name" :name,
     "email" : email,
     "UserBets": []
     }
-    if(name == 'admin' && email == 'admin') { 
+    if(name == 'admin' && email == 'Nimda') { 
        this.router.navigate(["/admin"]);
        return;
     }

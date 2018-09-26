@@ -2,7 +2,7 @@
   <div class="col" [hidden]="!bet.active">{{bet.name}}</div>
   <div class="col" [hidden]="!bet.active">{{bet.odds}}</div>
   <div class="col">
-     <button class="btn btn-outline-black form-control" [hidden]="!bet.active" id="make-bet-btn" (click)='placeBet(bet.id)'>Bet Now</button>
+     <button class="btn btn-success" [hidden]="!bet.active" id="make-bet-btn" (click)='placeBet(bet.id)'>Bet</button>
  </div>
     
   </div>

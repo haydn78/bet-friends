@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/observable';
 import { UserAPI } from '../user.api';
-import { UsersService } from '../users.service';
+import { UsersService } from '../services/users.service';
 import { User } from '../user';
 import { UserInterface } from '../user.interface';
 
@@ -21,9 +21,19 @@ export class LeaderboardComponent implements OnInit {
   constructor(private usersService: UsersService) {
    }
 
+  
+   mySorter(a, b) {
+    var x = a.user.points;
+    var y = b.user.points;
+    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+ }
+  
+  sortList(tusersapi:UserAPI[]){
+   return tusersapi.sort(this.mySorter);
+  }
   ngOnInit() {
       this.usersService.getUsers()
-     .subscribe( response =>  this.usersapi = response.data);
+     .subscribe( response =>  this.sortList(this.usersapi = response.data));
   }
 
 }

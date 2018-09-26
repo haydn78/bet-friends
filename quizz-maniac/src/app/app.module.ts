@@ -23,8 +23,8 @@ import { UserDataService } from './userdata.service';
 
 
 
-import { GamesService } from './games.service';
-import { UsersService } from './users.service';
+import { GamesService } from './services/games.service';
+import { UsersService } from './services/users.service';
 import { BetService } from './services/bet.service';
 import { ManageComponent } from './manage/manage.component';
 

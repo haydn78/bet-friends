@@ -12,7 +12,8 @@ import { Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class BetService {
  
-  private url="https://beturmate.appspot.com";
+ private url="https://bet-ur-mate-api.appspot.com";
+ // private url="http://localhost:3000";
  
   constructor(private http:HttpClient) { }
   
@@ -24,4 +25,12 @@ export class BetService {
     return this.http.get<UserInterface>(this.url+"/users/payUsers",  {params});
   };
 
+ clearUserBets(betid): Observable <UserInterface> {
+    console.log("debugging get FindUsers");
+    let params = new HttpParams();
+    params = params.append('betid', betid);
+    return this.http.get<UserInterface>(this.url+"/users/clearUserBet",  {params});
+  };
+  
+  
 }

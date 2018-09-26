@@ -1,7 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
 import { Bet } from '../bet';
 import { Router } from '@angular/router';
-import { GamesService } from '../games.service';
+import { GamesService } from '../services/games.service';
 import { GameAPI } from '../game.api';
 import { Observable } from 'rxjs/observable';
 import { BetService } from '../services/bet.service';
@@ -26,14 +26,17 @@ export class AdminComponent implements OnInit {
     let bets = this.Bets;
     console.log("AdminComponent:ngOnInit:start:"+bets);     
    
-     this.gamesService.getGames()
+     /**this.gamesService.getGames()
      .subscribe(function(response) {
        console.log("AdminComponent:ngOnInit:gameService:callback:"+response);     
         response.data.forEach(function(data){ 
             console.log("AdminComponent:ngOnInit:gameService:callback:gamebets"+data.game.Bets);
             data.game.Bets.forEach(bet => bets.push(bet));
           });
-        })
+        })**/
+    this.gamesService.getGames()
+     .subscribe(response => this.Games = response.data);
+    
      };
 
     
@@ -42,7 +45,7 @@ export class AdminComponent implements OnInit {
   winAction(betid) {
     console.log("AdminrComponent:winAction:start:"+betid);
     // find all users with this betid 
-     this.betService.payUserBets(betid).subscribe();
+     return(this.betService.payUserBets(betid).subscribe());
   
     // update users amount to new amount
     // set status to inactive
@@ -50,7 +53,16 @@ export class AdminComponent implements OnInit {
 
   loseAction(betid) {
     console.log("AdminrComponent:loseAction:start:"+betid);
+    return(this.betService.clearUserBets(betid).subscribe());
   }
 
+  disableGame(id) {
+    console.log("AdminrComponent:winAction:start:");
+    // find all users with this id
+     return(this.gamesService.disableGame(id).subscribe());
+      // update users amount to new amount
+    // set status to inactive
+  }
 
+  
 }

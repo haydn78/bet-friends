@@ -14,7 +14,7 @@
  
   <!-- Marketing Icons Section -->
       <div class="row-48" *ngFor="let gameapi of Games"> 
-        <div class="col-48 mb-4" *ngIf="gameapi.game.active">
+        <div class="col-48 mb-4" [hidden]="gameapi.game.active != 'true'">
           <div class="card h-100">
           <h4 class="card-header"> {{gameapi.game.name}}</h4>
             <div class="card-body">

@@ -32,4 +32,12 @@ loggedInUser: User;
  }
   }
 
+  logout(){
+
+  console.log("in logout");  
+  let user = new User();
+  this.usc.setUserData(user);  
+  this.router.navigate([""]);  
+  
+  }
 }
